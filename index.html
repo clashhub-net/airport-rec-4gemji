@@ -1,49 +1,88 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>机场推荐与代理工具 - ClashHub</title>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Airport | ClashHub</title>
 <style>
-:root{--bg:#0f172a;--c:#1e293b;--a:#38bdf8;--t:#e2e8f0;--m:#94a3b8}
-body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--t);padding:2rem}
-.l{max-width:900px;margin:0 auto}
-h1{color:var(--a);margin-bottom:.5rem}
-.s{color:var(--m);margin-bottom:2rem}
-.n{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
-a{color:var(--a);text-decoration:none;padding:.5rem 1rem;background:var(--c);border-radius:8px;font-size:.85rem}
-a:hover{background:#334155}
-.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:2rem 0}
-.card{background:var(--c);border-radius:12px;padding:1.5rem;border:1px solid #334155}
-.card h3{color:var(--a);margin-bottom:.5rem}
-.card p{color:var(--m);font-size:.85rem;line-height:1.6}
-table{width:100%;border-collapse:collapse;background:var(--c);border-radius:12px;overflow:hidden;border:1px solid #334155}
-th,td{padding:.75rem 1rem;text-align:left;border-bottom:1px solid #334155}
-th{color:var(--a)}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e1a;--c:#111827;--a:#38bdf8;--t:#f1f5f9;--m:#94a3b8}
+body{font-family:"Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+a{color:var(--a);text-decoration:none}a:hover{color:#7dd3fc}
+.hero{text-align:center;padding:80px 20px 60px;background:linear-gradient(180deg,rgba(56,189,248,.08) 0%,transparent 100%);border-bottom:1px solid rgba(56,189,248,.1)}
+.badge{display:inline-block;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);color:var(--a);padding:4px 16px;border-radius:100px;font-size:.75rem;margin-bottom:20px}
+.hero h1{font-size:2.5rem;font-weight:700;margin-bottom:12px;background:linear-gradient(135deg,#38bdf8,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--m);font-size:1.1rem;max-width:560px;margin:0 auto 32px}
+.hero-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero-links a{padding:10px 24px;border-radius:10px;font-size:.9rem;font-weight:500;background:var(--c);border:1px solid rgba(56,189,248,.2);color:var(--a)}
+.hero-links a:hover{background:rgba(56,189,248,.1)}
+nav{position:sticky;top:0;background:rgba(10,14,26,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);z-index:100;padding:0 20px}
+nav .inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:14px 0;font-size:.85rem}
+nav .logo{font-weight:700;color:var(--a);font-size:1rem;margin-right:auto}
+nav a{color:var(--m)}nav a:hover{color:var(--t)}
+.container{max-width:900px;margin:0 auto;padding:60px 20px}
+h2{font-size:1.5rem;font-weight:700;margin-bottom:6px}
+.sub{color:var(--m);font-size:.9rem;margin-bottom:32px}
+.tbl{overflow-x:auto;margin-bottom:60px}
+table{width:100%;border-collapse:collapse;background:var(--c);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
+th,td{padding:14px 20px;text-align:left;border-bottom:1px solid rgba(255,255,255,.05)}
+th{background:#161b22;color:var(--a);font-weight:600;font-size:.85rem;text-transform:uppercase}
 tr:last-child td{border-bottom:none}
-.ft{text-align:center;color:var(--m);font-size:.8rem;margin-top:3rem;padding-top:1rem;border-top:1px solid #1e293b}
-</style></head><body>
-<div class=l>
-<h1>机场推荐与代理工具导航</h1>
-<p class=s>ClashHub · 精选优质节点</p>
-<div class=n>
-<a href="https://clashhub.net">ClashHub</a>
-<a href="https://nav.clashvip.net">导航站</a>
-<a href="https://vpsvip.net">VPS推荐</a>
-<a href="https://bbs.clashhub.net">论坛</a>
-<a href="https://clash-for-windows.net">Clash下载</a>
+tr:hover td{background:rgba(56,189,248,.03)}
+.tag{display:inline-block;padding:2px 10px;border-radius:100px;font-size:.7rem;font-weight:600}
+.t5{background:rgba(16,185,129,.15);color:#34d399}
+.t4{background:rgba(56,189,248,.15);color:#38bdf8}
+.t3{background:rgba(251,191,36,.15);color:#fbbf24}
+.t2{background:rgba(251,146,60,.15);color:#fb923c}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:60px}
+.card{background:var(--c);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px;transition:all .25s}
+.card:hover{border-color:rgba(56,189,248,.3);transform:translateY(-3px);box-shadow:0 8px 32px rgba(56,189,248,.08)}
+.icon{font-size:1.8rem;margin-bottom:12px}
+.card h3{font-size:1rem;font-weight:600;margin-bottom:6px}
+.card p{font-size:.8rem;color:var(--m);line-height:1.5}
+.term{background:#0d1117;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);margin-bottom:60px}
+.term-bar{display:flex;align-items:center;gap:6px;padding:12px 16px;background:#161b22}
+.dot{width:12px;height:12px;border-radius:50%}
+.dot:nth-child(1){background:#ff5f57}.dot:nth-child(2){background:#febc2e}.dot:nth-child(3){background:#28c840}
+.term-bar span:last-child{margin-left:8px;font-size:.75rem;color:var(--m)}
+.term pre{padding:20px;font-family:"Cascadia Code","Fira Code",monospace;font-size:.85rem;color:#e6edf3;line-height:1.7;overflow-x:auto}
+.c{color:#6e7681}.k{color:#ff7b72}.s{color:#a5d6ff}.v{color:#79c0ff}
+footer{text-align:center;padding:40px 20px;border-top:1px solid rgba(255,255,255,.05);color:var(--m);font-size:.8rem}
+footer .links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+footer a{color:var(--m)}footer a:hover{color:var(--a)}
+</style>
+</head>
+<body>
+<nav><div class="inner"><span class="logo">ClashHub</span><a href="https://clashhub.net">Home</a><a href="https://nav.clashvip.net">Nav</a><a href="https://vpsvip.net">VPS</a><a href="https://bbs.clashhub.net">Forum</a></div></nav>
+<section class="hero"><div class="badge">Airport</div><h1>Premium Proxy Service Guide</h1><p>50+ global locations, supporting SS/Vmess/VLESS/Trojan/Hysteria2 protocols</p><div class="hero-links"><a href="https://clash-for-windows.net">CFW</a><a href="https://nav.clashvip.net">Nav</a><a href="https://clashhub.net/rules">Rules</a><a href="https://bbs.clashhub.net">Forum</a></div></section>
+<div class="container"><section><h2>Protocol Comparison</h2><p class="sub">Choose the right protocol for your needs</p><div class="tbl"><table><thead><tr><th>Protocol</th><th>Speed</th><th>Stability</th><th>Anti-censorship</th><th>Compatibility</th><th>Rating</th></tr></thead>
+<tbody><tr><td><strong>Shadowsocks</strong></td><td>3/5</td><td>3/5</td><td>2/5</td><td>All platforms</td><td><span class="tag t3">Good</span></td></tr>
+<tr><td><strong>Vmess</strong></td><td>3/5</td><td>3/5</td><td>3/5</td><td>All platforms</td><td><span class="tag t3">Good</span></td></tr>
+<tr><td><strong>VLESS + XTLS</strong></td><td>5/5</td><td>4/5</td><td>4/5</td><td>Major platforms</td><td><span class="tag t5">Best</span></td></tr>
+<tr><td><strong>Trojan</strong></td><td>4/5</td><td>4/5</td><td>4/5</td><td>Major platforms</td><td><span class="tag t4">Recommended</span></td></tr>
+<tr><td><strong>Hysteria2</strong></td><td>5/5</td><td>3/5</td><td>4/5</td><td>Partial</td><td><span class="tag t4">Recommended</span></td></tr>
+</tbody></table></div></section>
+<section><h2>ToolBox</h2><p class="sub">Subscription management and rule conversion tools</p><div class="grid"><div class="card"><div class="icon">CONVERT</div><h3>Subscribe Convert</h3><p>Convert SSR/V2ray/SS subscriptions to Clash format with built-in rules</p></div>
+<div class="card"><div class="icon">FILTER</div><h3>Node Filter</h3><p>Filter by country, latency, protocol type. Auto-remove dead nodes</p></div>
+<div class="card"><div class="icon">RULES</div><h3>Rule Manager</h3><p>Built-in ad-block, direct split, streaming optimization rules</p></div>
+<div class="card"><div class="icon">CHECK</div><h3>Health Check</h3><p>Periodic subscription availability check, node failure alerts</p></div>
+</div></section>
+<section><h2>Quick Config</h2><p class="sub">Copy your subscription URL and import into Clash</p><div class="term"><div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>clash.yaml</span></div><pre><span class="c"># Proxy provider example</span>
+<span class="k">proxy-providers</span>:
+  <span class="v">my-sub</span>:
+    <span class="k">type</span>: <span class="s">http</span>
+    <span class="k">url</span>: <span class="s">"your-subscription-url"</span>
+    <span class="k">interval</span>: <span class="s">3600</span>
+    <span class="k">health-check</span>:
+      <span class="k">enable</span>: <span class="s">true</span>
+      <span class="k">url</span>: <span class="s">"https://www.gstatic.com/generate_204"</span>
+
+<span class="c"># Rules example</span>
+<span class="k">rules</span>:
+  - <span class="s">DOMAIN-SUFFIX,google.com,PROXY</span>
+  - <span class="s">GEOIP,CN,DIRECT</span>
+  - <span class="s">MATCH,PROXY</span>
+</pre></div></section>
 </div>
-<div class=g>
-<div class=card><h3>订阅转换</h3><p>解析、过滤、格式转换</p><code>sub-convert.py</code></div>
-<div class=card><h3>分流规则</h3><p>广告屏蔽/国内直连/流媒体</p><code>rules.yaml</code></div>
-<div class=card><h3>广告黑名单</h3><p>广告+追踪器域名</p><code>adblock.txt</code></div>
-<div class=card><h3>直连域名</h3><p>国内CDN优化</p><code>direct.txt</code></div>
-</div>
-<h2 style="color:var(--a);margin:1.5rem 0 1rem">协议对比</h2>
-<table>
-<tr><th>协议</th><th>速度</th><th>稳定性</th><th>抗封锁</th><th>推荐度</th></tr>
-<tr><td>Shadowsocks</td><td>3星</td><td>3星</td><td>2星</td><td>3星</td></tr>
-<tr><td>VMess</td><td>3星</td><td>3星</td><td>3星</td><td>3星</td></tr>
-<tr><td>VLESS+XTLS</td><td>5星</td><td>4星</td><td>4星</td><td>5星</td></tr>
-<tr><td>Trojan</td><td>4星</td><td>4星</td><td>4星</td><td>4星</td></tr>
-<tr><td>Hysteria2</td><td>5星</td><td>3星</td><td>4星</td><td>4星</td></tr>
-</table>
-<p class=ft>ClashHub · <a href="https://clashhub.net" style="color:var(--a)">clashhub.net</a></p>
-</div></body></html>
+<footer><div class="links"><a href="https://clashhub.net">ClashHub</a><a href="https://nav.clashvip.net">Nav</a><a href="https://vpsvip.net">VPS</a><a href="https://clash-for-windows.net">CFW</a><a href="https://bbs.clashhub.net">Forum</a></div><p>2026 ClashHub</p></footer>
+</body></html>
